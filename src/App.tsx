@@ -38,7 +38,8 @@ function App() {
     stateCopy[index] = currentTurn;
 
     setState(stateCopy);
-
+    
+//Check whos the winner
     const win = checkWinner(stateCopy);
 
     if (win) {
@@ -50,12 +51,14 @@ function App() {
     }
   };
 
+//Check if the game is Draw
   useEffect(() => {
     if (isDraw(state)) {
       alert("It's a draw!");
     }
   }, [state]);
 
+//If the game is over, here is the reset state
   const resetGame = () => {
     setState(Array(9).fill(null));
     setCurrentTurn("X");
